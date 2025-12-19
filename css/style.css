@@ -1,26 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #2f6fed;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: #2f6fed;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #2f6fed;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #1d4fd1;
+}
+
+#cta {
+  text-align: center;
+  background: #2f6fed;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+#cta .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #2f6fed;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 footer {
-  background-color: #000;   /* fundo preto */
-  color: #fff;              /* texto branco */
+  background: #000;
+  color: #fff;
   text-align: center;
   padding: 20px;
-}
-
-.social-links {
-  margin-top: 10px;
-}
-
-.social-links a {
-  margin: 0 10px;
-  display: inline-block;
 }
 
 .social-links .icon {
   width: 28px;
   height: 28px;
-  filter: invert(1); /* transforma ícone preto em branco */
+  filter: invert(1); /* deixa branco */
+  margin: 0 10px;
   transition: transform 0.3s;
 }
 
 .social-links a:hover .icon {
-  transform: scale(1.2); /* efeito de zoom ao passar o mouse */
+  transform: scale(1.2);
 }
