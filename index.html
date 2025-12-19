@@ -3,24 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DaniSoft Web</title>
+  <title>Modelo de Landing Page</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Conteúdo principal do site -->
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Nome da Empresa</h1>
+    <p class="subtitle">Apresente seus serviços com uma página moderna e focada em resultados.</p>
+  </header>
 
+  <!-- Seção de Serviços -->
+  <section id="services">
+    <h2>Serviços</h2>
+    <div class="cards">
+      <div class="card">Serviço 1</div>
+      <div class="card">Serviço 2</div>
+      <div class="card">Serviço 3</div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section id="features">
+    <h2>Diferenciais</h2>
+    <ul>
+      <li>Design responsivo e otimizado</li>
+      <li>Formulário de contato integrado</li>
+      <li>Boas práticas de SEO</li>
+      <li>Integração opcional com Google Analytics</li>
+    </ul>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="testimonials">
+    <h2>Depoimentos</h2>
+    <blockquote>"Excelente solução para nossa empresa!"</blockquote>
+    <blockquote>"Aumentamos nossas vendas com a landing page."</blockquote>
+  </section>
+
+  <!-- Formulário de contato -->
+  <section id="contact">
+    <h2>Entre em contato</h2>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Vídeo demo -->
+  <section id="video">
+    <h2>Demonstração</h2>
+    <video src="assets/video/demo.mp4" controls width="600"></video>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta">
+    <h2>Gostou da solução?</h2>
+    <p>Solicite um orçamento e tenha uma landing page exclusiva.</p>
+    <a href="#" class="btn">Solicitar Orçamento</a>
+  </section>
+
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 DaniSoft Web. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Nome da Empresa. Todos os direitos reservados.</p>
     <div class="social-links">
-      <a href="https://instagram.com/seuusuario" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a href="#" target="_blank" aria-label="Instagram">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="icon" />
       </a>
-      <a href="mailto:danielle.morais940@gmail.com" aria-label="E-mail">
+      <a href="mailto:email@exemplo.com" aria-label="E-mail">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail" class="icon" />
       </a>
     </div>
   </footer>
 
+  <script src="js/script.js"></script>
 </body>
 </html>
