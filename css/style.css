@@ -1,0 +1,26 @@
+footer {
+  background-color: #000;   /* fundo preto */
+  color: #fff;              /* texto branco */
+  text-align: center;
+  padding: 20px;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-links .icon {
+  width: 28px;
+  height: 28px;
+  filter: invert(1); /* transforma ícone preto em branco */
+  transition: transform 0.3s;
+}
+
+.social-links a:hover .icon {
+  transform: scale(1.2); /* efeito de zoom ao passar o mouse */
+}
