@@ -1,7 +1,7 @@
-// Seleciona o formulário
+// ==========================
+// Validação do Formulário
+// ==========================
 const form = document.querySelector("form");
-
-// Cria elemento de feedback
 const feedback = document.createElement("p");
 feedback.style.marginTop = "10px";
 form.appendChild(feedback);
@@ -22,19 +22,22 @@ form.addEventListener("submit", function(e) {
   feedback.textContent = "Mensagem enviada com sucesso!";
   feedback.style.color = "green";
 
-  // Integração com Google Analytics (exemplo)
-  if (typeof gtag === "function") {
-    gtag("event", "conversion", {
-      "send_to": "AW-CONVERSION_ID",
-      "event_category": "Formulário",
-      "event_label": "Contato Landing Page"
-    });
-  }
-
-  // Integração com Facebook Pixel (exemplo)
-  if (typeof fbq === "function") {
-    fbq("track", "Lead");
-  }
+  // Aqui você pode integrar com backend, API ou serviço de e-mail
+  // Exemplo: enviar dados via fetch() para um servidor
 
   form.reset();
+});
+
+// ==========================
+// Dark Mode Toggle
+// ==========================
+const toggle = document.getElementById("darkModeToggle");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // Atualiza o texto do botão conforme o modo ativo
+  toggle.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️ Light Mode"
+    : "🌙 Dark Mode";
 });
