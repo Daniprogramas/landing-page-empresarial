@@ -23,6 +23,14 @@ header nav a {
   font-weight: bold;
 }
 
+#darkModeToggle {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 section {
   padding: 40px 20px;
   max-width: 900px;
@@ -141,20 +149,42 @@ footer {
   transform: scale(1.2);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  header nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .pricing {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  video {
-    width: 100%;
-  }
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
 }
+
+body.dark-mode header {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode h2 {
+  color: #90caf9;
+}
+
+body.dark-mode ul li {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .plan {
+  background: #1e1e1e;
+  border: 1px solid #444;
+}
+
+body.dark-mode .plan h3 {
+  color: #90caf9;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark-mode form button {
+  background: #90caf9;
+  color: #000;
