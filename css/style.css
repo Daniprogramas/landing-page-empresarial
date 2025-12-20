@@ -87,4 +87,74 @@ form {
 
 form input, form textarea {
   padding: 10px;
-  border: 1px
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #2f6fed;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #1d4fd1;
+}
+
+#cta {
+  text-align: center;
+  background: #2f6fed;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+#cta .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #2f6fed;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.social-links .icon {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-links a:hover .icon {
+  transform: scale(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pricing {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    width: 100%;
+  }
+}
