@@ -1,60 +1,105 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset */
+* {
   margin: 0;
-  background: #f9f9f9;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
 header {
   background: #2f6fed;
   color: #fff;
-  text-align: center;
-  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
 }
 
-header nav {
-  margin-top: 20px;
+header .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 header nav a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #darkModeToggle {
-  margin-top: 15px;
-  padding: 8px 16px;
+  background: transparent;
   border: none;
-  border-radius: 5px;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #fff;
 }
 
-section {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: auto;
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #2f6fed, #1d4fd1);
+  color: #fff;
 }
 
-h2 {
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #fff;
   color: #2f6fed;
-  margin-bottom: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #f1f1f1;
+}
+
+/* Seções */
+.section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
   text-align: center;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-ul li {
-  background: #eee;
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 6px;
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 250px;
 }
 
+/* Planos */
 .pricing {
   display: flex;
   gap: 20px;
@@ -64,37 +109,28 @@ ul li {
 
 .plan {
   background: #fff;
-  border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
   flex: 1;
   min-width: 250px;
-  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .plan h3 {
   color: #2f6fed;
 }
 
-.plan .btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #2f6fed;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
+/* Formulário */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
 }
 
 form input, form textarea {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -106,30 +142,14 @@ form button {
   padding: 12px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 form button:hover {
   background: #1d4fd1;
 }
 
-#cta {
-  text-align: center;
-  background: #2f6fed;
-  color: #fff;
-  padding: 40px 20px;
-}
-
-#cta .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #fff;
-  color: #2f6fed;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
+/* Rodapé */
 footer {
   background: #000;
   color: #fff;
@@ -140,7 +160,6 @@ footer {
 .social-links .icon {
   width: 28px;
   height: 28px;
-  filter: invert(1);
   margin: 0 10px;
   transition: transform 0.3s;
 }
@@ -157,25 +176,16 @@ body.dark-mode {
 
 body.dark-mode header {
   background: #1e1e1e;
-  color: #f1f1f1;
 }
 
-body.dark-mode h2 {
-  color: #90caf9;
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #000, #333);
 }
 
-body.dark-mode ul li {
-  background: #1e1e1e;
-  color: #f1f1f1;
-}
-
+body.dark-mode .card,
 body.dark-mode .plan {
   background: #1e1e1e;
-  border: 1px solid #444;
-}
-
-body.dark-mode .plan h3 {
-  color: #90caf9;
+  color: #f1f1f1;
 }
 
 body.dark-mode form input,
@@ -188,3 +198,8 @@ body.dark-mode form textarea {
 body.dark-mode form button {
   background: #90caf9;
   color: #000;
+}
+
+body.dark-mode footer {
+  background: #111;
+}
