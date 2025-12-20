@@ -1,56 +1,63 @@
 // ==========================
-// Validação + Envio do Formulário
+// Dark Mode com persistência
 // ==========================
-const form = document.querySelector("form");
+const toggle = document.getElementById("darkModeToggle");
+
+// Aplica tema salvo ou do sistema na primeira carga
+(function initTheme() {
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const useDark = saved ? saved === "dark" : prefersDark;
+  document.body.classList.toggle("dark-mode", useDark);
+  toggle.textContent = useDark ? "☀️" : "🌙";
+})();
+
+// Alterna tema e salva
+toggle.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  toggle.textContent = isDark ? "☀️" : "🌙";
+});
+
+// ==========================
+// Validação + Envio Formspree
+// ==========================
+const form = document.getElementById("contactForm");
 const feedback = document.createElement("p");
 feedback.style.marginTop = "10px";
 form.appendChild(feedback);
 
-form.addEventListener("submit", async function(e) {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const nome = form.querySelector("input[type='text']").value.trim();
-  const email = form.querySelector("input[type='email']").value.trim();
-  const mensagem = form.querySelector("textarea").value.trim();
+  const nome = form.nome.value.trim();
+  const email = form.email.value.trim();
+  const mensagem = form.mensagem.value.trim();
 
   if (!nome || !email || !mensagem) {
     feedback.textContent = "Por favor, preencha todos os campos.";
-    feedback.style.color = "red";
+    feedback.style.color = "#ef4444"; // vermelho
     return;
   }
 
-  // Envio via Formspree
+  // Envio via Formspree — substitua pelo seu endpoint caso queira
   try {
-    const response = await fetch("https://formspree.io/f/mjkvwqgv", {
+    const res = await fetch("https://formspree.io/f/mjkvwqgv", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome, email, mensagem })
     });
 
-    if (response.ok) {
+    if (res.ok) {
       feedback.textContent = "Mensagem enviada com sucesso!";
-      feedback.style.color = "green";
+      feedback.style.color = "#10b981"; // verde
       form.reset();
     } else {
       feedback.textContent = "Erro ao enviar. Tente novamente.";
-      feedback.style.color = "red";
+      feedback.style.color = "#ef4444";
     }
-  } catch (error) {
+  } catch {
     feedback.textContent = "Falha na conexão. Tente mais tarde.";
-    feedback.style.color = "red";
+    feedback.style.color = "#ef4444";
   }
-});
-
-// ==========================
-// Dark Mode Toggle
-// ==========================
-const toggle = document.getElementById("darkModeToggle");
-
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-
-  // Atualiza o ícone do botão conforme o modo ativo
-  toggle.textContent = document.body.classList.contains("dark-mode")
-    ? "☀️"
-    : "🌙";
 });
