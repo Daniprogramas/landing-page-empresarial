@@ -1,12 +1,12 @@
 // ==========================
-// Validação do Formulário
+// Validação + Envio do Formulário
 // ==========================
 const form = document.querySelector("form");
 const feedback = document.createElement("p");
 feedback.style.marginTop = "10px";
 form.appendChild(feedback);
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const nome = form.querySelector("input[type='text']").value.trim();
@@ -19,13 +19,26 @@ form.addEventListener("submit", function(e) {
     return;
   }
 
-  feedback.textContent = "Mensagem enviada com sucesso!";
-  feedback.style.color = "green";
+  // Envio via Formspree
+  try {
+    const response = await fetch("https://formspree.io/f/mjkvwqgv", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nome, email, mensagem })
+    });
 
-  // Aqui você pode integrar com backend, API ou serviço de e-mail
-  // Exemplo: enviar dados via fetch() para um servidor
-
-  form.reset();
+    if (response.ok) {
+      feedback.textContent = "Mensagem enviada com sucesso!";
+      feedback.style.color = "green";
+      form.reset();
+    } else {
+      feedback.textContent = "Erro ao enviar. Tente novamente.";
+      feedback.style.color = "red";
+    }
+  } catch (error) {
+    feedback.textContent = "Falha na conexão. Tente mais tarde.";
+    feedback.style.color = "red";
+  }
 });
 
 // ==========================
@@ -36,8 +49,8 @@ const toggle = document.getElementById("darkModeToggle");
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 
-  // Atualiza o texto do botão conforme o modo ativo
+  // Atualiza o ícone do botão conforme o modo ativo
   toggle.textContent = document.body.classList.contains("dark-mode")
-    ? "☀️ Light Mode"
-    : "🌙 Dark Mode";
+    ? "☀️"
+    : "🌙";
 });
