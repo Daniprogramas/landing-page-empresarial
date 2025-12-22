@@ -82,3 +82,12 @@ body {
 }
 .faq-answer {
   display: none;
+  padding: 12px;
+  background: #f9fafb;
+  border-left: 3px solid #2563eb;
+  margin-top: 6px;
+  border-radius: 6px;
+}
+.faq-item.active .faq-answer { display: block; }
+
+/
