@@ -1,101 +1,95 @@
+/* Reset e base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f8fa;
+  color: #222;
+  line-height: 1.6;
 }
 
-.dark-mode {
-  background: #111;
-  color: #eee;
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background: #2f6fed;
+  color: #fff;
+}
+.btn-outline {
+  border: 2px solid #2f6fed;
+  color: #2f6fed;
+  background: transparent;
 }
 
-header {
+/* Cabeçalho */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background: #f4f4f4;
+  padding: 14px 24px;
+  background: #ffffffcf;
+  backdrop-filter: blur(6px);
 }
+.nav a { margin: 0 10px; text-decoration: none; color: #111; }
+.toggle { background: #2f6fed; color: #fff; border: none; border-radius: 8px; padding: 8px 12px; }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-}
-
-#hero {
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #2f6fed, #1d4fd1);
+  color: #fff;
+  padding: 90px 20px;
   text-align: center;
-  padding: 60px 20px;
-  background: url("../assets/banner.jpg") no-repeat center/cover;
-  color: white;
 }
 
-.cta {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 30px;
-  background: #ff6600;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
+/* Seções */
+.section { padding: 60px 24px; max-width: 1100px; margin: auto; text-align: center; }
+.section h2 { color: #1d3f91; }
 
-#produtos {
-  display: flex;
-  justify-content: center;
+/* Cards */
+.cards, .pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
-  padding: 40px;
 }
-
-.card {
+.card, .plan {
   background: #fff;
+  border: 1px solid #e9eef7;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 6px 22px rgba(17, 24, 39, 0.06);
+}
+.destaque { border: 2px solid #ff6600; }
+
+/* Depoimentos */
+blockquote {
+  background: #fff;
+  border-left: 4px solid #2f6fed;
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  flex: 1;
-  text-align: center;
+  max-width: 700px;
+  font-style: italic;
 }
 
-.destaque {
-  border: 2px solid #ff6600;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: auto;
-}
-
-button {
-  padding: 10px;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f4f4f4;
-}
-
-/* FAQ Accordion */
-.faq-item {
-  margin: 10px 0;
-}
+/* FAQ */
+.faq-item { margin: 10px 0; }
 .faq-question {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   text-align: left;
   background: #eee;
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
-.faq-answer {
-  display: none;
-  padding: 10px;
-  background: #f9f9f9;
-}
-.faq-item.active .faq-answer {
-  display: block;
-}
+.faq-answer { display: none; padding: 10px; background: #f9f9f9; }
+.faq-item.active .faq-answer { display: block; }
+
+/* Formulário */
+form { display: grid; gap: 14px; max-width: 540px; margin: auto; }
+form input,
