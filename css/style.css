@@ -1,14 +1,56 @@
-/* Reset e base */
+/* Base */
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
 body {
+  margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f7f8fa;
+  background: #f4f7fb;
   color: #222;
   line-height: 1.6;
 }
 
-/* Botões */
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav a { margin: 0 12px; text-decoration: none; color: #1e3a8a; font-weight: 500; }
+.toggle { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 8px 12px; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+
+/* Sections */
+.section { padding: 60px 24px; max-width: 1100px; margin: auto; text-align: center; }
+.section h2 { color: #1e3a8a; margin-bottom: 20px; }
+
+/* Cards */
+.cards, .pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card, .plan {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.destaque { border: 2px solid #2563eb; }
+
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 12px 22px;
@@ -16,107 +58,30 @@ body {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 .btn-primary {
-  background: #2f6fed;
+  background: #2563eb;
   color: #fff;
-  box-shadow: 0 8px 20px rgba(47, 111, 237, 0.25);
 }
 .btn-outline {
-  border: 2px solid #2f6fed;
-  color: #2f6fed;
+  border: 2px solid #2563eb;
+  color: #2563eb;
   background: transparent;
 }
 
-/* Cabeçalho */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #ffffffcf;
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 24px;
+/* FAQ */
+.faq-item { margin: 12px 0; text-align: left; }
+.faq-question {
+  width: 100%;
+  padding: 12px;
+  background: #e0e7ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
 }
-.nav a { margin: 0 10px; text-decoration: none; color: #111; }
-.toggle { background: #2f6fed; color: #fff; border: none; border-radius: 8px; padding: 8px 12px; }
-
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #2f6fed, #1d4fd1);
-  color: #fff;
-  padding: 90px 20px;
-  text-align: center;
-}
-
-/* Seções */
-.section { padding: 60px 24px; max-width: 1100px; margin: auto; text-align: center; }
-.section h2 { color: #1d3
-
-/* ==========================
-   Dark Mode
-   ========================== */
-body.dark-mode {
-  background: #0f1115;
-  color: #e6eaf2;
-}
-
-body.dark-mode .header {
-  background: #0f1115cc;
-  color: #e6eaf2;
-  border-bottom-color: #1a1f2b;
-}
-
-body.dark-mode .nav a { color: #e6eaf2; }
-
-body.dark-mode .toggle { background: #3b82f6; }
-body.dark-mode .toggle:hover { background: #2563eb; }
-
-body.dark-mode .hero {
-  background: linear-gradient(135deg, #0b1020, #0f1a38);
-  color: #e6eaf2;
-}
-
-body.dark-mode .section h2 { color: #93c5fd; }
-body.dark-mode .section p { color: #cbd5e1; }
-
-body.dark-mode .card,
-body.dark-mode .plan {
-  background: #11151d;
-  border-color: #1a2030;
-  color: #e6eaf2;
-  box-shadow: 0 6px 22px rgba(2, 6, 23, 0.35);
-}
-body.dark-mode .plan h3 { color: #93c5fd; }
-body.dark-mode .plan p { color: #cbd5e1; }
-
-body.dark-mode form input,
-body.dark-mode form textarea {
-  background: #0f141f;
-  border-color: #1c2536;
-  color: #e6eaf2;
-}
-
-body.dark-mode .btn-outline {
-  border-color: #93c5fd;
-  color: #93c5fd;
-}
-body.dark-mode .btn-outline:hover {
-  background: #93c5fd;
-  color: #0b1020;
-}
-
-body.dark-mode .btn-primary {
-  background: #3b82f6;
-  color: #0b1020;
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
-}
-
-body.dark-mode .footer {
-  background: #0b0d12;
-  color: #e6eaf2;
-}
-body.dark-mode .footer-separator { background: #202430; }
+.faq-answer {
+  display: none;
+  padding: 12px;
+  background: #f9fafb;
+  border
