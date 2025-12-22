@@ -16,10 +16,12 @@ body {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 .btn-primary {
   background: #2f6fed;
   color: #fff;
+  box-shadow: 0 8px 20px rgba(47, 111, 237, 0.25);
 }
 .btn-outline {
   border: 2px solid #2f6fed;
@@ -29,12 +31,15 @@ body {
 
 /* Cabeçalho */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffffcf;
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 24px;
-  background: #ffffffcf;
-  backdrop-filter: blur(6px);
 }
 .nav a { margin: 0 10px; text-decoration: none; color: #111; }
 .toggle { background: #2f6fed; color: #fff; border: none; border-radius: 8px; padding: 8px 12px; }
@@ -67,29 +72,17 @@ body {
 .destaque { border: 2px solid #ff6600; }
 
 /* Depoimentos */
-blockquote {
-  background: #fff;
-  border-left: 4px solid #2f6fed;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 700px;
+#depoimentos .card {
+  text-align: left;
   font-style: italic;
 }
 
 /* FAQ */
-.faq-item { margin: 10px 0; }
+.faq-item { margin: 12px 0; text-align: left; }
 .faq-question {
   width: 100%;
   padding: 12px;
-  text-align: left;
-  background: #eee;
-  border: none;
+  background: #fff;
+  border: 1px solid #d8deea;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
-}
-.faq-answer { display: none; padding: 10px; background: #f9f9f9; }
-.faq-item.active .faq-answer { display: block; }
-
-/* Formulário */
-form { display: grid; gap: 14px; max-width: 540px; margin: auto; }
-form input,
