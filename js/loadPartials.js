@@ -1,9 +1,24 @@
+// ==========================
+// Função para carregar parciais
+// ==========================
 async function loadPartial(id, file) {
-  const response = await fetch(`partials/${file}`);
-  const html = await response.text();
-  document.getElementById(id).innerHTML = html;
+  try {
+    const response = await fetch(`partials/${file}`);
+    const html = await response.text();
+    document.getElementById(id).innerHTML = html;
+
+    // Se carregou o header, inicializa o dark mode
+    if (id === "header") {
+      initDarkMode();
+    }
+  } catch (error) {
+    console.error(`Erro ao carregar ${file}:`, error);
+  }
 }
 
+// ==========================
+// Carregamento dos parciais
+// ==========================
 loadPartial("header", "header.html");
 loadPartial("hero", "hero.html");
 loadPartial("about", "about.html");
@@ -14,7 +29,10 @@ loadPartial("faq", "faq.html");
 loadPartial("contact", "contact.html");
 loadPartial("footer", "footer.html");
 
-document.addEventListener("DOMContentLoaded", () => {
+// ==========================
+// Dark Mode (função chamada após header)
+// ==========================
+function initDarkMode() {
   const toggle = document.getElementById("darkModeToggle");
   if (!toggle) return;
 
@@ -31,4 +49,4 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
     toggle.textContent = isDark ? "☀️" : "🌙";
   });
-});
+}
