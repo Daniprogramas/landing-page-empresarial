@@ -257,6 +257,7 @@ body {
 #about p {
   text-align: justify;
   line-height: 1.6; /* melhora a leitura */
+  text-indent: 2em; /* recuo no início do parágrafo */ }
 }
 
 
