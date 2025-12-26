@@ -258,3 +258,22 @@ body {
   text-align: justify;
   line-height: 1.6; /* melhora a leitura */
 }
+
+
+.hero-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f'); /* exemplo Unsplash */
+}
+
+.hero-content {
+  background: rgba(0,0,0,0.5); /* camada escura para destacar o texto */
+  padding: 20px;
+  border-radius: 8px;
+}
