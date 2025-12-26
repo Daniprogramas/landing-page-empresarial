@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initDarkMode() {
   const toggle = document.getElementById("darkModeToggle");
   if (!toggle) return;
 
@@ -15,4 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
     toggle.textContent = isDark ? "☀️" : "🌙";
   });
-});
+}
