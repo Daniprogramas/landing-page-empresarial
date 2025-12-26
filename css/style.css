@@ -262,16 +262,16 @@ body {
 
 
 .hero-section {
-  height: 80vh;
+  height: 80vh; /* mantém como estava no PC */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
-  background-size: cover;
+  color: #fff; /* texto sempre branco */
+  background-size: cover; /* desktop perfeito */
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f'); /* exemplo Unsplash */
+  background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');
 }
 
 .hero-content {
@@ -280,11 +280,12 @@ body {
   border-radius: 8px;
 }
 
-/* Ajuste para telas menores */
+/* Ajuste só para telas menores */
 @media (max-width: 768px) {
   .hero-section {
-    background-size: contain;   /* mostra a imagem inteira */
+    background-size: contain;   /* mostra a imagem inteira no celular */
     background-position: center;
-    background-color: #000;     /* cor de fundo para preencher sobras */
+    background-color: #000;     /* fundo preto para preencher sobras */
   }
 }
+
