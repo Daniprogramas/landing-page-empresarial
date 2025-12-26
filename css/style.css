@@ -12,6 +12,7 @@ body {
   background: #f4f7fb;
   color: #222;
   line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Links */
@@ -39,7 +40,7 @@ a {
 .logo {
   font-weight: 700;
   font-size: 1.2rem;
-  color: #1e3a8a;
+  color: #1e3a8a; /* azul no modo claro */
 }
 
 .nav a {
@@ -66,23 +67,51 @@ a {
 }
 
 /* ==========================
-   Hero
+   Hero (versão inicial com cor)
    ========================== */
-.hero {
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: #fff;
-  padding: 100px 20px;
+.hero-section {
+  height: 100vh; /* ocupa toda a tela no PC */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff; /* texto sempre branco */
 }
-.hero h1 {
-  font-size: 2.8rem;
+
+.hero-content {
+  background: rgba(0,0,0,0.5); /* card escuro para destacar texto */
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 700;
+  color: #fff;
 }
-.hero p {
+
+.hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  opacity: 0.9;
+  color: #fff;
+}
+
+.hero-content .btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-content .btn:hover {
+  background: #1e40af;
 }
 
 /* ==========================
@@ -251,60 +280,69 @@ a {
 .footer .social-links a:hover {
   color: #2563eb;
 }
-body {
-  transition: background 0.4s ease, color 0.4s ease;
-}
-#about p {
-  text-align: justify;
-  line-height: 1.6; /* melhora a leitura */
-  text-indent: 2em; /* recuo no início do parágrafo */ }
-}
 
-
-.hero-section {
-  height: 80vh; /* mantém como estava no PC */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff; /* texto sempre branco */
-  background-size: cover; /* desktop perfeito */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');
-}
-
-.hero-content {
-  background: rgba(0,0,0,0.5); /* camada escura para destacar o texto */
-  padding: 20px;
-  border-radius: 8px;
-}
-
-/* Ajuste só para telas menores */
-@media (max-width: 768px) {
-  .hero-section {
-    background-size: contain;   /* mostra a imagem inteira no celular */
-    background-position: center;
-    background-color: #000;     /* fundo preto para preencher sobras */
-  }
-}
+/* ==========================
+   Ajustes responsivos
+   ========================== */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;   /* empilha logo e navegação */
-    align-items: center;      /* centraliza tudo */
-    padding: 12px;            /* reduz o padding */
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
   }
 
   .nav {
-    margin-top: 10px;         /* espaço entre logo e links */
+    margin-top: 10px;
     display: flex;
-    flex-wrap: wrap;          /* permite quebrar linha se precisar */
-    justify-content: center;  /* centraliza os links */
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav a {
-    margin: 6px;              /* espaçamento menor entre os links */
-    font-size: 0.95rem;       /* reduz um pouco o tamanho da fonte */
+    margin: 6px;
+    font-size: 0.95rem;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
   }
 }
 
+/* ==========================
+   Dark Mode
+   ========================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #eee;
+  }
+
+  .header {
+    background: #1e293b;
+  }
+
+  .logo {
+    color: #fff; /* logo branco no dark mode */
+  }
+
+  .nav a {
+    color: #eee;
+  }
+
+  .footer {
+    background: #1e293b;
+    color: #eee;
+  }
+
+  .footer .social-links a {
+    color: #eee;
+  }
+}
