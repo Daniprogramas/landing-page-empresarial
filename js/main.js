@@ -39,11 +39,12 @@ function initHero() {
   const hero = document.querySelector(".hero-section");
   if (!hero) return;
 
-  const images = [
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-    "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/office-973134_1280.jpg"
-  ];
+const images = [
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+  "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "https://cdn.pixabay.com/photo/2015/10/05/22/37/office-973134_1280.jpg"
+];
+
 
   let index = 0;
   setInterval(() => {
