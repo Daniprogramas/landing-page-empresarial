@@ -251,3 +251,6 @@ a {
 .footer .social-links a:hover {
   color: #2563eb;
 }
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
