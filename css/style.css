@@ -1,14 +1,28 @@
-/* Base */
-* { box-sizing: border-box; }
-body {
+/* ==========================
+   Reset & Base
+   ========================== */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f4f7fb;
   color: #222;
   line-height: 1.6;
 }
 
-/* Header */
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   Header
+   ========================== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -19,58 +33,136 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-.nav a { margin: 0 12px; text-decoration: none; color: #1e3a8a; font-weight: 500; }
-.toggle { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 8px 12px; }
 
-/* Hero */
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+}
+
+.nav a {
+  margin: 0 12px;
+  font-weight: 500;
+  color: #1e3a8a;
+  transition: color 0.3s;
+}
+.nav a:hover {
+  color: #2563eb;
+}
+
+.toggle {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle:hover {
+  background: #1e40af;
+}
+
+/* ==========================
+   Hero
+   ========================== */
 .hero {
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: #fff;
   padding: 100px 20px;
   text-align: center;
 }
-.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
 
-/* Sections */
-.section { padding: 60px 24px; max-width: 1100px; margin: auto; text-align: center; }
-.section h2 { color: #1e3a8a; margin-bottom: 20px; }
+/* ==========================
+   Sections
+   ========================== */
+.section {
+  padding: 60px 24px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+.section h2 {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+}
 
-/* Cards */
+/* ==========================
+   Cards & Pricing
+   ========================== */
 .cards, .pricing {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
+
 .card, .plan {
   background: #fff;
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.destaque { border: 2px solid #2563eb; }
+.card:hover, .plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
 
-/* Buttons */
+.destaque {
+  border: 2px solid #2563eb;
+}
+
+/* ==========================
+   Buttons
+   ========================== */
 .btn {
   display: inline-block;
   padding: 12px 22px;
   border-radius: 8px;
   font-weight: 600;
-  text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s;
 }
+
 .btn-primary {
   background: #2563eb;
   color: #fff;
 }
+.btn-primary:hover {
+  background: #1e40af;
+}
+
 .btn-outline {
   border: 2px solid #2563eb;
   color: #2563eb;
   background: transparent;
 }
+.btn-outline:hover {
+  background: #2563eb;
+  color: #fff;
+}
 
-/* FAQ */
-.faq-item { margin: 12px 0; text-align: left; }
+/* ==========================
+   FAQ
+   ========================== */
+.faq-item {
+  margin: 12px 0;
+  text-align: left;
+}
 .faq-question {
   width: 100%;
   padding: 12px;
@@ -79,6 +171,10 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.3s;
+}
+.faq-question:hover {
+  background: #c7d2fe;
 }
 .faq-answer {
   display: none;
@@ -88,80 +184,10 @@ body {
   margin-top: 6px;
   border-radius: 6px;
 }
-.faq-item.active .faq-answer { display: block; }
-
-/
-/* ==========================
-   Dark Mode
-   ========================== */
-body.dark-mode {
-  background: #121212;
-  color: #e5e5e5;
+.faq-item.active .faq-answer {
+  display: block;
 }
 
-/* Header */
-body.dark-mode .header {
-  background: #1f1f1f;
-}
-body.dark-mode .nav a {
-  color: #93c5fd; /* azul claro */
-}
-body.dark-mode .toggle {
-  background: #374151;
-  color: #f9fafb;
-}
-
-/* Hero */
-body.dark-mode .hero {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: #f9fafb;
-}
-
-/* Sections */
-body.dark-mode .section h2 {
-  color: #93c5fd;
-}
-
-/* Cards & Pricing */
-body.dark-mode .card,
-body.dark-mode .plan {
-  background: #1f2937;
-  color: #e5e5e5;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-}
-body.dark-mode .destaque {
-  border: 2px solid #3b82f6;
-}
-
-/* Buttons */
-body.dark-mode .btn-primary {
-  background: #3b82f6;
-  color: #fff;
-}
-body.dark-mode .btn-outline {
-  border: 2px solid #3b82f6;
-  color: #3b82f6;
-}
-
-/* FAQ */
-body.dark-mode .faq-question {
-  background: #374151;
-  color: #f9fafb;
-}
-body.dark-mode .faq-answer {
-  background: #1f2937;
-  border-left: 3px solid #3b82f6;
-  color: #e5e5e5;
-}
-
-/* Footer */
-body.dark-mode .footer {
-  background: #1f1f1f;
-  color: #9ca3af;
-}
-body.dark-mode .footer a {
-  color: #93c5fd;
-}
 /* ==========================
    Formulário de Contato
    ========================== */
@@ -200,16 +226,28 @@ body.dark-mode .footer a {
   justify-self: start;
 }
 
-/* Dark Mode para o formulário */
-body.dark-mode #contactForm input,
-body.dark-mode #contactForm textarea {
-  background: #1f2937;
-  border: 1px solid #374151;
-  color: #f9fafb;
+/* ==========================
+   Footer
+   ========================== */
+.footer {
+  background: #f9fafb;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #e5e7eb;
 }
-
-body.dark-mode #contactForm input:focus,
-body.dark-mode #contactForm textarea:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+}
+.footer .social-links a {
+  margin: 0 8px;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  transition: color 0.3s;
+}
+.footer .social-links a:hover {
+  color: #2563eb;
 }
