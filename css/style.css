@@ -254,3 +254,7 @@ a {
 body {
   transition: background 0.4s ease, color 0.4s ease;
 }
+#about p {
+  text-align: justify;
+  line-height: 1.6; /* melhora a leitura */
+}
