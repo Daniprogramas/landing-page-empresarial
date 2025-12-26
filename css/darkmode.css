@@ -3,8 +3,12 @@ body.dark-mode {
   background: #121212;
   color: #e5e5e5;
 }
+@media (prefers-color-scheme: dark) {
+  .logo {
+    color: #fff; /* deixa o "Danisoft Web" branco no dark mode */
+  }
+}
 
-/* Header */
 body.dark-mode .header {
   background: #1f1f1f;
 }
