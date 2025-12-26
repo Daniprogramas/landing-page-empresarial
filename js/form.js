@@ -1,70 +1,62 @@
-// Validação + Envio Formspree
-const form = document.getElementById("contactForm");
-const feedback = document.createElement("p");
-feedback.style.marginTop = "10px";
-form.appendChild(feedback);
+// ==========================
+// Inicialização do Formulário de Contato
+// ==========================
+function initForm() {
+  const form = document.getElementById("contactForm");
+  if (!form) return; // garante que só roda se o form existir
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  // Mensagem de feedback
+  const feedback = document.createElement("p");
+  feedback.style.marginTop = "10px";
+  form.appendChild(feedback);
 
-  const { nome, email, telefone, empresa, cargo, mensagem } = form;
+  // Evento de envio
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  if (!nome.value.trim() || !email.value.trim() || !mensagem.value.trim()) {
-    feedback.textContent = "Por favor, preencha os campos obrigatórios.";
-    feedback.style.color = "#ef4444";
-    return;
-  }
+    const { nome, email, telefone, empresa, cargo, mensagem } = form;
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email.value.trim())) {
-    feedback.textContent = "E-mail inválido.";
-    feedback.style.color = "#ef4444";
-    return;
-  }
+    // Validação básica
+    if (!nome.value.trim() || !email.value.trim() || !mensagem.value.trim()) {
+      feedback.textContent = "Por favor, preencha os campos obrigatórios.";
+      feedback.style.color = "#ef4444";
+      return;
+    }
 
-  try {
-    const res = await fetch("https://formspree.io/f/mjkvwqgv", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nome: nome.value.trim(),
-        email: email.value.trim(),
-        telefone: telefone.value.trim(),
-        empresa: empresa.value.trim(),
-        cargo: cargo.value.trim(),
-        mensagem: mensagem.value.trim()
-      })
-    });
+    // Validação de e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+      feedback.textContent = "E-mail inválido.";
+      feedback.style.color = "#ef4444";
+      return;
+    }
 
-    if (res.ok) {
-      feedback.textContent = "Mensagem enviada com sucesso!";
-      feedback.style.color = "#10b981";
-      form.reset();
-    } else {
-      feedback.textContent = "Erro ao enviar. Tente novamente.";
+    // Envio para Formspree
+    try {
+      const res = await fetch("https://formspree.io/f/mjkvwqgv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: nome.value.trim(),
+          email: email.value.trim(),
+          telefone: telefone.value.trim(),
+          empresa: empresa.value.trim(),
+          cargo: cargo.value.trim(),
+          mensagem: mensagem.value.trim()
+        })
+      });
+
+      if (res.ok) {
+        feedback.textContent = "Sua mensagem foi enviada com sucesso para a Danisoft Web. Em breve nossa equipe entrará em contato, basta aguardar.";
+        feedback.style.color = "#10b981"; // verde elegante
+        form.reset();
+      } else {
+        feedback.textContent = "Erro ao enviar. Tente novamente.";
+        feedback.style.color = "#ef4444";
+      }
+    } catch {
+      feedback.textContent = "Falha na conexão. Tente mais tarde.";
       feedback.style.color = "#ef4444";
     }
-  } catch {
-    feedback.textContent = "Falha na conexão. Tente mais tarde.";
-    feedback.style.color = "#ef4444";
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("darkModeToggle");
-  if (!toggle) return;
-
-  (function initTheme() {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const useDark = saved ? saved === "dark" : prefersDark;
-    document.body.classList.toggle("dark-mode", useDark);
-    toggle.textContent = useDark ? "☀️" : "🌙";
-  })();
-
-  toggle.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    toggle.textContent = isDark ? "☀️" : "🌙";
   });
-});
+}
