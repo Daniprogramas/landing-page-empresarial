@@ -1,10 +1,12 @@
-// FAQ Accordion
-document.querySelectorAll(".faq-question").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.parentElement.classList.toggle("active");
-  });
-});
 document.addEventListener("DOMContentLoaded", () => {
+  // FAQ Accordion
+  document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.parentElement.classList.toggle("active");
+    });
+  });
+
+  // Dark Mode
   const toggle = document.getElementById("darkModeToggle");
   if (!toggle) return;
 
