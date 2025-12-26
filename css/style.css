@@ -162,3 +162,54 @@ body.dark-mode .footer {
 body.dark-mode .footer a {
   color: #93c5fd;
 }
+/* ==========================
+   Formulário de Contato
+   ========================== */
+#contactForm {
+  display: grid;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  outline: none;
+}
+
+#contactForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#contactForm button {
+  justify-self: start;
+}
+
+/* Dark Mode para o formulário */
+body.dark-mode #contactForm input,
+body.dark-mode #contactForm textarea {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode #contactForm input:focus,
+body.dark-mode #contactForm textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
