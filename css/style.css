@@ -288,4 +288,23 @@ body {
     background-color: #000;     /* fundo preto para preencher sobras */
   }
 }
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;   /* empilha logo e navegação */
+    align-items: center;      /* centraliza tudo */
+    padding: 12px;            /* reduz o padding */
+  }
+
+  .nav {
+    margin-top: 10px;         /* espaço entre logo e links */
+    display: flex;
+    flex-wrap: wrap;          /* permite quebrar linha se precisar */
+    justify-content: center;  /* centraliza os links */
+  }
+
+  .nav a {
+    margin: 6px;              /* espaçamento menor entre os links */
+    font-size: 0.95rem;       /* reduz um pouco o tamanho da fonte */
+  }
+}
 
