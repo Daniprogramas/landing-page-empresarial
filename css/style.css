@@ -91,3 +91,74 @@ body {
 .faq-item.active .faq-answer { display: block; }
 
 /
+/* ==========================
+   Dark Mode
+   ========================== */
+body.dark-mode {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+/* Header */
+body.dark-mode .header {
+  background: #1f1f1f;
+}
+body.dark-mode .nav a {
+  color: #93c5fd; /* azul claro */
+}
+body.dark-mode .toggle {
+  background: #374151;
+  color: #f9fafb;
+}
+
+/* Hero */
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f9fafb;
+}
+
+/* Sections */
+body.dark-mode .section h2 {
+  color: #93c5fd;
+}
+
+/* Cards & Pricing */
+body.dark-mode .card,
+body.dark-mode .plan {
+  background: #1f2937;
+  color: #e5e5e5;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+body.dark-mode .destaque {
+  border: 2px solid #3b82f6;
+}
+
+/* Buttons */
+body.dark-mode .btn-primary {
+  background: #3b82f6;
+  color: #fff;
+}
+body.dark-mode .btn-outline {
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+
+/* FAQ */
+body.dark-mode .faq-question {
+  background: #374151;
+  color: #f9fafb;
+}
+body.dark-mode .faq-answer {
+  background: #1f2937;
+  border-left: 3px solid #3b82f6;
+  color: #e5e5e5;
+}
+
+/* Footer */
+body.dark-mode .footer {
+  background: #1f1f1f;
+  color: #9ca3af;
+}
+body.dark-mode .footer a {
+  color: #93c5fd;
+}
