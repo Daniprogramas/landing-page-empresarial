@@ -1,26 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // FAQ Accordion
-  document.querySelectorAll(".faq-question").forEach(btn => {
+// ==========================
+// FAQ Accordion
+// ==========================
+export function initFAQ() {
+  // Seleciona todas as perguntas
+  const questions = document.querySelectorAll(".faq-question");
+  if (!questions.length) return; // se não houver perguntas, sai
+
+  // Adiciona evento de clique em cada pergunta
+  questions.forEach(btn => {
     btn.addEventListener("click", () => {
+      // Alterna a classe "active" no item pai
       btn.parentElement.classList.toggle("active");
     });
   });
-
-  // Dark Mode
-  const toggle = document.getElementById("darkModeToggle");
-  if (!toggle) return;
-
-  (function initTheme() {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const useDark = saved ? saved === "dark" : prefersDark;
-    document.body.classList.toggle("dark-mode", useDark);
-    toggle.textContent = useDark ? "☀️" : "🌙";
-  })();
-
-  toggle.addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-mode");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    toggle.textContent = isDark ? "☀️" : "🌙";
-  });
-});
+}
