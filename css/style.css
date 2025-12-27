@@ -67,7 +67,7 @@ a {
 }
 
 /* ==========================
-   Hero (versão inicial com cor)
+   Hero (corrigido)
    ========================== */
 .hero-section {
   height: 100vh; /* ocupa toda a tela no PC */
@@ -75,7 +75,7 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
+  background: linear-gradient(135deg, #2563eb, #1e40af); /* fundo em cor */
   color: #fff; /* texto sempre branco */
 }
 
@@ -86,22 +86,25 @@ a {
   max-width: 600px;
 }
 
+.hero-content h1,
+.hero-content p,
+.hero-content .btn {
+  color: #fff; /* força texto e botão brancos */
+}
+
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 700;
-  color: #fff;
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #fff;
 }
 
 .hero-content .btn {
   background: #2563eb;
-  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 12px 22px;
